@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:filtered_list"
+             x:Class="filtered_list.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:MainPageBindingContext/>
+    </ContentPage.BindingContext>
+    <Grid RowDefinitions="50,*">
+        <Entry 
+            Placeholder="Filter List"
+            Text="{Binding FilterText}"
+         />
+        <CollectionView
+            ItemsSource="{Binding FilteredProjects}"
+            Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="5" CornerRadius="10">
+                        <Grid    
+                            RowSpacing="2"
+                            BackgroundColor="White" 
+                            Padding="5"
+                            RowDefinitions="Auto,Auto"
+                            ColumnDefinitions="*,*,*">
+                            <Label 
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                Grid.ColumnSpan="3"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start"
+                                Text="{Binding Description}" 
+                                FontSize="Small"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+</ContentPage>
