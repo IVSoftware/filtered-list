@@ -17,7 +17,11 @@
             Grid.Row="1">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Padding="5" CornerRadius="10">
+                    <Frame 
+                        BackgroundColor="Azure"
+                        Padding="5" 
+                        Margin="0,0,0,4"
+                        CornerRadius="10">
                         <Grid    
                             RowSpacing="2"
                             BackgroundColor="White" 
@@ -31,7 +35,7 @@
                                 HorizontalOptions="Fill"
                                 HorizontalTextAlignment="Start"
                                 Text="{Binding Description}" 
-                                FontSize="Small"/>
+                                FontSize="12"/>
                         </Grid>
                     </Frame>
                 </DataTemplate>
