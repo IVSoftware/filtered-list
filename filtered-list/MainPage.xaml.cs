@@ -69,8 +69,8 @@ namespace filtered_list
             var reconciled = Reconciler.Reconcile(
                 srceA: FilteredProjects, 
                 srceB: preFilterProjects,
-                (a,b)=> (CompareUIDResult)a.Description.CompareTo(b.Description),
-                (a,b)=> CompareVersionResult.Equal
+                uidSorter: (a,b)=> (CompareUIDResult)a.Description.CompareTo(b.Description),
+                versionComparer: (a,b)=> CompareVersionResult.Equal
             );
             foreach (var remove in reconciled.OnlyInA)
             {
