@@ -1,6 +1,4 @@
-# filtered-list
-
-The code you posted gives a good sense of what you're trying to do but not quite enough to run it and try and reproduce the exact cause. I do, as you say, "have an idea" based on similar problems when I've tried to make `ItemsSource` a bindable property and `set` it the way you're doing in `this.Projects = filteredProjects`. As something to try what has worked for me is to bind the `ItemsSource` one time only, and do everything by adding/removing. 
+## Filtered List
 
 A minimal scheme to realize this could involve two observable collections of `Project`: The `ItemsSource` is called `FilteredProjects` and is bound to the `CollectionView`. A second OC will contain "all" the projects, and isn't bound to a UI element. However (for example) you could add a `CollectionChanged` handler to it to determine whether changes to the underlying `AllProjects` collection are relevant in terms of the current filter.
 
